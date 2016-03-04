@@ -1,0 +1,16 @@
+# Maven folder
+
+target/
+
+# IntelliJ 
+
+.idea/
+trip-helper.iml
+
+.gradle/
+build/
+foursquare.iml
+gradle/
+gradlew
+gradlew.bat
+settings.gradle
