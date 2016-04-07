@@ -35,7 +35,9 @@ public class PlaceServiceFoursquareImpl implements PlaceServiceFoursquare {
         //Items
         JSONArray groups = JSONArray.class.cast(jsonResponse.get("groups"));
         JSONArray items = JSONObject.class.cast(groups.get(0)).getJSONArray("items");
-        response.setItems(IntStream.range(0, items.length()).parallel().mapToObj(index -> factory.create((JSONObject) items.get(index))).collect(Collectors.toSet()));
+        response.setItems(IntStream.range(0, items.length()).parallel().mapToObj(
+                index -> factory.create((JSONObject) items.get(index))
+        ).collect(Collectors.toSet()));
         return response;
     }
 

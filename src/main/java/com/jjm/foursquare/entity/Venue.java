@@ -13,6 +13,7 @@ public class Venue {
     private Location location;
     private Set<Photo> photos;
     private Geocode geocode;
+    private Category category;
 
     public String getName() {
         return name;
@@ -76,5 +77,13 @@ public class Venue {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 }
