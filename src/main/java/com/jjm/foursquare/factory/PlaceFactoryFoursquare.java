@@ -24,7 +24,7 @@ public class PlaceFactoryFoursquare {
         place.setReferenceId(JSONObjectUtils.getString(venue, "id"));
         place.setName(JSONObjectUtils.getString(venue, "name"));
         place.setUrl(JSONObjectUtils.getString(venue, "url"));
-
+        place.setRating(JSONObjectUtils.getDouble(venue, "rating"));
         //Photos
         JSONObject jsonObjectPhotos = JSONObject.class.cast(venue.get("photos"));
         JSONArray groupsArray = jsonObjectPhotos.getJSONArray("groups");
