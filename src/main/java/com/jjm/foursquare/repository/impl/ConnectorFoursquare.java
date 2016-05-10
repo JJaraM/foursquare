@@ -22,7 +22,8 @@ public class ConnectorFoursquare implements Connector {
         builder.queryParam("client_id", FoursquareApplication.getInstance().getClientId());
         builder.queryParam("client_secret", FoursquareApplication.getInstance().getClientSecret());
         builder.queryParam("v", new SimpleDateFormat("yyyyMMdd").format(new Date()));
-        builder.queryParam("limit", 3000);
+        builder.queryParam("limit", 10000);
+        builder.queryParam("locale", "es");
         return builder;
     }
 

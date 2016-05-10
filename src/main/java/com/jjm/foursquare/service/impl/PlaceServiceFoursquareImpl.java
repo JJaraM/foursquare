@@ -3,6 +3,7 @@ package com.jjm.foursquare.service.impl;
 import com.jjm.foursquare.domain.Parameter;
 import com.jjm.foursquare.entity.*;
 import com.jjm.foursquare.factory.GeocodeFactory;
+import com.jjm.foursquare.factory.HeaderFactoryFoursquare;
 import com.jjm.foursquare.factory.MetaFactory;
 import com.jjm.foursquare.factory.PlaceFactoryFoursquare;
 import com.jjm.foursquare.repository.Connector;
@@ -19,9 +20,9 @@ public class PlaceServiceFoursquareImpl implements PlaceServiceFoursquare {
 
     @Resource private MetaFactory metaFactory;
     @Resource private GeocodeFactory geocodeFactory;
-
     @Resource private Connector connector;
     @Resource private PlaceFactoryFoursquare factory;
+    @Resource private HeaderFactoryFoursquare headerFactoryFoursquare;
 
     @Override
     public Response<Venue> fetchNearPlacesByLocationName(String location) {
@@ -29,9 +30,10 @@ public class PlaceServiceFoursquareImpl implements PlaceServiceFoursquare {
         JSONObject jsonResponse = JSONObject.class.cast(jsonObject.get("response"));
         //Response
         Response<Venue> response = new Response();
+        response.setHeader(headerFactoryFoursquare.create(jsonResponse));
         response.setMeta(metaFactory.create(jsonObject));
         //Geocode
-        response.setGeocode(geocodeFactory.create(jsonResponse));
+        response.setGeocode(geocodeFactory.create(jsonResponse.getJSONObject("geocode")));
         //Items
         JSONArray groups = JSONArray.class.cast(jsonResponse.get("groups"));
         JSONArray items = JSONObject.class.cast(groups.get(0)).getJSONArray("items");

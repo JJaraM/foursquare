@@ -4,6 +4,7 @@ public class Geocode {
 
     private String cc;
     private String where;
+    private String displayString;
 
     public String getCc() {
         return cc;
@@ -19,5 +20,13 @@ public class Geocode {
 
     public void setWhere(String where) {
         this.where = where;
+    }
+
+    public String getDisplayString() {
+        return displayString;
+    }
+
+    public void setDisplayString(String displayString) {
+        this.displayString = displayString;
     }
 }

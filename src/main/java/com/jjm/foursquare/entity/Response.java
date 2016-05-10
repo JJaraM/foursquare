@@ -7,6 +7,7 @@ public class Response<T> {
     private Meta meta;
     private Geocode geocode;
     private Set<T> items;
+    private Header header;
 
     public Geocode getGeocode() {
         return geocode;
@@ -30,5 +31,13 @@ public class Response<T> {
 
     public void setMeta(Meta meta) {
         this.meta = meta;
+    }
+
+    public Header getHeader() {
+        return header;
+    }
+
+    public void setHeader(Header header) {
+        this.header = header;
     }
 }

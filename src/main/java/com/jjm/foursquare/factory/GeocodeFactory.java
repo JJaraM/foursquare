@@ -9,6 +9,9 @@ public class GeocodeFactory {
 
     public Geocode create(JSONObject jsonObject) {
         Geocode geocode = new Geocode();
+        geocode.setCc(jsonObject.getString("cc"));
+        geocode.setDisplayString(jsonObject.getString("displayString"));
+        geocode.setWhere(jsonObject.getString("where"));
         return geocode;
     }
 }

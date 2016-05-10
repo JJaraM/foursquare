@@ -8,7 +8,7 @@ public class Venue {
     private String name;
     private String url;
     private Double rating;
-
+    private Header header;
     private Contact contact;
     private Location location;
     private Set<Photo> photos;
